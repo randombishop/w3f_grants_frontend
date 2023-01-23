@@ -1,10 +1,11 @@
 import React from 'react';
 import Container from '@mui/material/Container';
-import {createBrowserRouter,RouterProvider} from "react-router-dom";
+import {createBrowserRouter,RouterProvider,useParams} from "react-router-dom";
 
 
 import Home from './home/Home' ;
 import Grants from './grants/Grants' ;
+import GrantPage from './grants/GrantPage' ;
 import Teams from './teams/Teams' ;
 import Applications from './applications/Applications' ;
 import Deliveries from './deliveries/Deliveries' ;
@@ -12,35 +13,45 @@ import Stats from './stats/Stats' ;
 import Links from './links/Links' ;
 
 
+function GrantPageWrapper() {
+  let { id } = useParams();
+  return <GrantPage fileName={id} /> ;
+}
+
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home />
   },
   {
     path: "grants",
-    element: <Grants />,
+    element: <Grants />
+  },
+  {
+    path: "grants/:id",
+    element: <GrantPageWrapper />
   },
   {
     path: "teams",
-    element: <Teams />,
+    element: <Teams />
   },
   {
     path: "applications",
-    element: <Applications />,
+    element: <Applications />
   },
   {
     path: "deliveries",
-    element: <Deliveries />,
+    element: <Deliveries />
   },
   {
     path: "stats",
-    element: <Stats />,
+    element: <Stats />
   },
   {
     path: "links",
-    element: <Links />,
-  },
+    element: <Links />
+  }
 ]);
 
 
