@@ -3,13 +3,13 @@ import Container from '@mui/material/Container';
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 
 
-import Home from './Home' ;
-import Grants from './Grants' ;
-import Teams from './Teams' ;
-import Applications from './Applications' ;
-import Deliveries from './Deliveries' ;
-import Stats from './Stats' ;
-import Links from './Links' ;
+import Home from './home/Home' ;
+import Grants from './grants/Grants' ;
+import Teams from './teams/Teams' ;
+import Applications from './applications/Applications' ;
+import Deliveries from './deliveries/Deliveries' ;
+import Stats from './stats/Stats' ;
+import Links from './links/Links' ;
 
 
 const router = createBrowserRouter([
