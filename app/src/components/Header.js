@@ -13,16 +13,18 @@ export default class Header extends React.Component {
       return (
         <AppBar position="static">
             <Toolbar>
-              <img src={Logo} width="45" height="45" style={{marginRight:'20px'}} alt="W3F Logo"/>
+              <Button color="inherit" href="/">
+                <img src={Logo} width="45" height="45" style={{marginRight:'20px'}} alt="W3F Logo"/>
+              </Button>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 W3F Grants Data
               </Typography>
-              <Button color="inherit">Grants</Button>
-              <Button color="inherit">Teams</Button>
-              <Button color="inherit">Applications</Button>
-              <Button color="inherit">Deliveries</Button>
-              <Button color="inherit">Stats</Button>
-              <Button color="inherit">Links</Button>
+              <Button color="inherit" href="grants">Grants</Button>
+              <Button color="inherit" href="teams">Teams</Button>
+              <Button color="inherit" href="applications">Applications</Button>
+              <Button color="inherit" href="deliveries">Deliveries</Button>
+              <Button color="inherit" href="stats">Stats</Button>
+              <Button color="inherit" href="links">Links</Button>
             </Toolbar>
         </AppBar>
       );
