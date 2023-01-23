@@ -19,14 +19,20 @@ export default class GrantPage extends React.Component {
   }
 
   fetchData = () => {
-    //const self = this ;
-    const url = 'http://localhost:8888/grants/'+this.props.fileName;
-    alert(url) ;
-    //fetch(url)
-    //.then(res => res.json())
-    //.then(self.updateData)
-    //.catch(err => {alert(err)});
+    const self = this ;
+    const url = 'http://localhost:8888/grant/'+this.props.fileName;
+    fetch(url)
+    .then(res => res.json())
+    .then(self.updateData)
+    .catch(err => {alert(err)});
   }
+
+  updateData = (data) => {
+    this.setState({grant:data}) ;
+  }
+
+
+
 
   renderLoading = () => {
     return (
@@ -41,6 +47,7 @@ export default class GrantPage extends React.Component {
         <React.Fragment>
             <Grid item xs={12}>
                 <Typography component="div" variant="h5">Grant Details</Typography>
+                {JSON.stringify(this.state.grant)}
             </Grid>
         </React.Fragment>
     );
@@ -49,7 +56,7 @@ export default class GrantPage extends React.Component {
   render = () => {
       return (
         <Grid container spacing={2}>
-            {this.props.grant?this.renderReady():this.renderLoading()}
+            {this.state.grant?this.renderReady():this.renderLoading()}
         </Grid>
       );
   }
