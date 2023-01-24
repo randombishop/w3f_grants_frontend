@@ -31,8 +31,8 @@ export default class GrantInfo extends React.Component {
               {this.renderTableRow('Date accepted', formatDate(grant.status.acceptDate))}
               {this.renderTableRow('Level', grant.level)}
               {this.renderTableRow('Payment Address', grant.paymentAddress)}
-              {this.renderTableRow('Currency',  grant.paymentCurrency)}
-              {this.renderTableRow('Amount',  grant.amount)}
+              {this.renderTableRow('Payment Currency',  grant.paymentCurrency)}
+              {this.renderTableRow('Amount',  grant.amount+' '+grant.amountCurrency)}
               {this.renderTableRow('Milestones', grant.numMilestonesDelivered+' / '+grant.numMilestones)}
             </TableBody>
         </Table>

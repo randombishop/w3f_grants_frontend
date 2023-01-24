@@ -33,7 +33,6 @@ export default class GrantsList extends React.Component {
                         <TableCell style={{minWidth:'110px'}} align="center"><b>Started On</b></TableCell>
                         <TableCell align="center"><b>Level</b></TableCell>
                         <TableCell align="center"><b>Cost</b></TableCell>
-                        <TableCell align="center"><b>Currency</b></TableCell>
                         <TableCell align="center"><b>Milestones</b></TableCell>
                       </TableRow>
                     </TableHead>
@@ -56,8 +55,7 @@ export default class GrantsList extends React.Component {
               </TableCell>
               <TableCell>{formatDate(grant.status.acceptDate)}</TableCell>
               <TableCell align="center">{grant.level}</TableCell>
-              <TableCell align="right">{grant.amount}</TableCell>
-              <TableCell align="center">{grant.paymentCurrency}</TableCell>
+              <TableCell align="right">{grant.amount+' '+grant.amountCurrency}</TableCell>
               <TableCell align="center">{grant.numMilestonesDelivered} / {grant.numMilestones}</TableCell>
         </TableRow>
     ) ;
