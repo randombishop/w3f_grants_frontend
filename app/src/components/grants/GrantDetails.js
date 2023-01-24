@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -27,7 +26,7 @@ export default class GrantDetails extends React.Component {
   render = () => {
       const grant = this.props.grant ;
       return (
-        <Paper style={{padding:'20px'}}>
+        <React.Fragment>
             <Typography variant="h5">
                 {grant.projectName}
             </Typography>
@@ -43,10 +42,7 @@ export default class GrantDetails extends React.Component {
                   {this.renderTableRow('Milestones', grant.numMilestonesDelivered+' / '+grant.numMilestones)}
                 </TableBody>
             </Table>
-            <hr/>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            {JSON.stringify(this.props.grant)}
-        </Paper>
+        </React.Fragment>
       );
   }
 

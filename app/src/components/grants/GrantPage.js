@@ -1,9 +1,11 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 
 import GrantDetails from './GrantDetails' ;
+import GrantTabs from './GrantTabs' ;
 import GrantDocuments from './GrantDocuments' ;
 
 
@@ -50,7 +52,13 @@ export default class GrantPage extends React.Component {
     return (
         <Grid container spacing={2}>
             <Grid item xs={8}>
-                <GrantDetails grant={this.state.grant} />
+                <Paper style={{padding:'20px'}}>
+                    <GrantDetails grant={this.state.grant} />
+                    <br/><br/>
+                    <GrantTabs grant={this.state.grant} />
+                </Paper>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                {JSON.stringify(this.state.grant)}
             </Grid>
             <Grid item xs={4}>
                 <GrantDocuments  grant={this.state.grant} />
