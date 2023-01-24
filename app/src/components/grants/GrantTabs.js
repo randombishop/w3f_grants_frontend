@@ -15,6 +15,7 @@ import LinkIcon from '@mui/icons-material/Link';
 import GrantInfo from './GrantInfo' ;
 import GrantOverview from './GrantOverview' ;
 import GrantMilestone from './GrantMilestone' ;
+import GrantGithub from './GrantGithub' ;
 import GrantLinks from './GrantLinks' ;
 
 export default class GrantTabs extends React.Component {
@@ -74,7 +75,9 @@ export default class GrantTabs extends React.Component {
             grant.milestones.map(this.renderMilestoneTabPanel)
             :''}
 
-            <TabPanel value="repos">Repositories</TabPanel>
+            <TabPanel value="repos">
+                <GrantGithub grant={grant} />
+            </TabPanel>
 
             <TabPanel value="links">
                 <GrantLinks grant={grant} />

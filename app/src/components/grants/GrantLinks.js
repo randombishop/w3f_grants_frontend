@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 
 
-export default class GrantOverview extends React.Component {
+export default class GrantLinks extends React.Component {
 
   aggregateLinks = () => {
     const grant = this.props.grant ;
