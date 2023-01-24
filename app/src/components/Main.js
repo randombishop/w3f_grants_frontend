@@ -25,31 +25,31 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: "grants",
+    path: "/grants",
     element: <Grants />
   },
   {
-    path: "grants/:id",
+    path: "/grants/:id",
     element: <GrantPageWrapper />
   },
   {
-    path: "teams",
+    path: "/teams",
     element: <Teams />
   },
   {
-    path: "applications",
+    path: "/applications",
     element: <Applications />
   },
   {
-    path: "deliveries",
+    path: "/deliveries",
     element: <Deliveries />
   },
   {
-    path: "stats",
+    path: "/stats",
     element: <Stats />
   },
   {
-    path: "links",
+    path: "/links",
     element: <Links />
   }
 ]);
@@ -59,7 +59,7 @@ export default class Main extends React.Component {
 
   render() {
       return (
-        <Container style={{marginTop:'20px'}}>
+        <Container style={{marginTop:'25px'}}>
             <RouterProvider router={router} />
         </Container>
       );

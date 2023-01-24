@@ -3,6 +3,10 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 
+import GrantDetails from './GrantDetails' ;
+import GrantDocuments from './GrantDocuments' ;
+
+
 export default class GrantPage extends React.Component {
 
 
@@ -44,12 +48,14 @@ export default class GrantPage extends React.Component {
 
   renderReady = () => {
     return (
-        <React.Fragment>
-            <Grid item xs={12}>
-                <Typography component="div" variant="h5">Grant Details</Typography>
-                {JSON.stringify(this.state.grant)}
+        <Grid container spacing={2}>
+            <Grid item xs={8}>
+                <GrantDetails grant={this.state.grant} />
             </Grid>
-        </React.Fragment>
+            <Grid item xs={4}>
+                <GrantDocuments  grant={this.state.grant} />
+            </Grid>
+        </Grid>
     );
   }
 
