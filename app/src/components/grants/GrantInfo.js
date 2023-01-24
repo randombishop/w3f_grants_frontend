@@ -15,7 +15,7 @@ export default class GrantInfo extends React.Component {
     const styleColumn1 = {width:'100px', textAlign:'right'} ;
     const styleColumn2 = {width:'250px', textAlign:'left'} ;
     return (
-        <TableRow>
+        <TableRow key={label}>
             <TableCell style={styleColumn1}><b>{label}</b></TableCell>
             <TableCell style={styleColumn2}>{value}</TableCell>
         </TableRow>

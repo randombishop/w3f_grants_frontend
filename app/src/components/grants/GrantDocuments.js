@@ -114,7 +114,7 @@ export default class GrantDocuments extends React.Component {
         <List component="div" disablePadding>
           {items.map((item) => {
             return (
-                <ListItemButton sx={{ pl: 4 }} onClick={this.openDocument(item.url)}>
+                <ListItemButton key={item.label} sx={{ pl: 4 }} onClick={this.openDocument(item.url)}>
                     <ListItemText primary={item.label} />
                 </ListItemButton>
             )

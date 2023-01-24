@@ -8,6 +8,7 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 import PendingIcon from '@mui/icons-material/Pending';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import InfoIcon from '@mui/icons-material/Info';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 
 import GrantInfo from './GrantInfo' ;
@@ -37,6 +38,7 @@ export default class GrantTabs extends React.Component {
                 <Tab label="Overview" icon={<SummarizeIcon />} value="overview" />
                 <Tab label="M1" icon={<CheckCircleIcon />} value="m1" />
                 <Tab label="M2" icon={<PendingIcon />} value="m2" />
+                <Tab label="Repos" icon={<GitHubIcon />} value="repos" />
               </TabList>
             </Box>
             <TabPanel value="info">
@@ -47,6 +49,7 @@ export default class GrantTabs extends React.Component {
             </TabPanel>
             <TabPanel value="m1">Milestone 1</TabPanel>
             <TabPanel value="m2">Milestone 2</TabPanel>
+            <TabPanel value="repos">Repositories</TabPanel>
           </TabContext>
       );
   }
