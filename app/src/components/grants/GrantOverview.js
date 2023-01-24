@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown'
+import RemarkGfm from 'remark-gfm'
 
 
 export default class GrantOverview extends React.Component {
@@ -18,7 +19,7 @@ export default class GrantOverview extends React.Component {
   render = () => {
       const grant = this.props.grant ;
       return (
-        <ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[RemarkGfm]}>
             {grant.abstract + this.renderLastLine()}
         </ReactMarkdown>
       );
