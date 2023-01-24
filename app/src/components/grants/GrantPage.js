@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 
 
-import GrantDetails from './GrantDetails' ;
 import GrantTabs from './GrantTabs' ;
 import GrantDocuments from './GrantDocuments' ;
 
@@ -53,12 +52,12 @@ export default class GrantPage extends React.Component {
         <Grid container spacing={2}>
             <Grid item xs={8}>
                 <Paper style={{padding:'20px'}}>
-                    <GrantDetails grant={this.state.grant} />
-                    <br/><br/>
+                    <Typography variant="h5">
+                        {this.state.grant.projectName}
+                    </Typography>
+                    <hr/>
                     <GrantTabs grant={this.state.grant} />
                 </Paper>
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                {JSON.stringify(this.state.grant)}
             </Grid>
             <Grid item xs={4}>
                 <GrantDocuments  grant={this.state.grant} />
