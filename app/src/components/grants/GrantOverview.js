@@ -18,11 +18,9 @@ export default class GrantOverview extends React.Component {
   render = () => {
       const grant = this.props.grant ;
       return (
-        <div>
-            <ReactMarkdown>
-                {grant.abstract + this.renderLastLine()}
-            </ReactMarkdown>
-        </div>
+        <ReactMarkdown>
+            {grant.abstract + this.renderLastLine()}
+        </ReactMarkdown>
       );
   }
 

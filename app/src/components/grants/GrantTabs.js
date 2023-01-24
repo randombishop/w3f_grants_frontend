@@ -9,11 +9,13 @@ import PendingIcon from '@mui/icons-material/Pending';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import InfoIcon from '@mui/icons-material/Info';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkIcon from '@mui/icons-material/Link';
 
 
 import GrantInfo from './GrantInfo' ;
 import GrantOverview from './GrantOverview' ;
-
+import GrantMilestone from './GrantMilestone' ;
+import GrantLinks from './GrantLinks' ;
 
 export default class GrantTabs extends React.Component {
 
@@ -28,28 +30,56 @@ export default class GrantTabs extends React.Component {
     this.setState({currentTab:newValue});
   };
 
+  renderMilestoneTabTitle(milestone) {
+    const number = milestone.number ;
+    const label = 'M'+number ;
+    const icon = milestone.delivery?<CheckCircleIcon />:<PendingIcon /> ;
+    return <Tab key={label} label={label} icon={icon} value={label} />
+  }
+
+  renderMilestoneTabPanel(milestone) {
+    const number = milestone.number ;
+    const label = 'M'+number ;
+    return (<TabPanel key={label} value={label}>
+                <GrantMilestone milestone={milestone} />
+           </TabPanel>) ;
+  }
+
   render = () => {
-      //const grant = this.props.grant ;
+      const grant = this.props.grant ;
       return (
          <TabContext value={this.state.currentTab}>
+
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={this.handleChange} >
                 <Tab label="Info" icon={<InfoIcon />} value="info" />
                 <Tab label="Overview" icon={<SummarizeIcon />} value="overview" />
-                <Tab label="M1" icon={<CheckCircleIcon />} value="m1" />
-                <Tab label="M2" icon={<PendingIcon />} value="m2" />
+                {grant.milestones?
+                grant.milestones.map(this.renderMilestoneTabTitle)
+                :''}
                 <Tab label="Repos" icon={<GitHubIcon />} value="repos" />
+                <Tab label="Links" icon={<LinkIcon />} value="links" />
               </TabList>
             </Box>
+
             <TabPanel value="info">
-                <GrantInfo grant={this.props.grant} />
+                <GrantInfo grant={grant} />
             </TabPanel>
+
             <TabPanel value="overview">
-                <GrantOverview grant={this.props.grant} />
+                <GrantOverview grant={grant} />
             </TabPanel>
-            <TabPanel value="m1">Milestone 1</TabPanel>
-            <TabPanel value="m2">Milestone 2</TabPanel>
+
+            {grant.milestones?
+            grant.milestones.map(this.renderMilestoneTabPanel)
+            :''}
+
             <TabPanel value="repos">Repositories</TabPanel>
+
+            <TabPanel value="links">
+                <GrantLinks grant={grant} />
+            </TabPanel>
+
           </TabContext>
       );
   }
