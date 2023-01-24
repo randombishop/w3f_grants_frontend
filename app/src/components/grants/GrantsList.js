@@ -8,6 +8,10 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
+
+import {formatDate} from '../../utils' ;
+
+
 export default class GrantsList extends React.Component {
 
 
@@ -50,18 +54,13 @@ export default class GrantsList extends React.Component {
                     {grant.teamName} / {grant.projectName}
                 </a>
               </TableCell>
-              <TableCell>{this.renderDate(grant.status.acceptDate)}</TableCell>
+              <TableCell>{formatDate(grant.status.acceptDate)}</TableCell>
               <TableCell align="center">{grant.level}</TableCell>
               <TableCell align="right">{grant.amount}</TableCell>
               <TableCell align="center">{grant.paymentCurrency}</TableCell>
               <TableCell align="center">{grant.numMilestonesDelivered} / {grant.numMilestones}</TableCell>
         </TableRow>
     ) ;
-  }
-
-  renderDate = (timestamp) => {
-    const date = new Date(timestamp);
-    return date.toISOString().split('T')[0] ;
   }
 
   render() {

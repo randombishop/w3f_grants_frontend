@@ -6,6 +6,11 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
+
+import {formatDate} from '../../utils' ;
+
+
+
 export default class GrantDetails extends React.Component {
 
   renderTableRow(label, value) {
@@ -14,31 +19,32 @@ export default class GrantDetails extends React.Component {
     return (
         <TableRow>
             <TableCell style={styleColumn1}><b>{label}</b></TableCell>
-            <TableCell style={styleColumn2}><b>{value}</b></TableCell>
+            <TableCell style={styleColumn2}>{value}</TableCell>
         </TableRow>
     ) ;
   }
 
   render = () => {
-
+      const grant = this.props.grant ;
       return (
         <Paper style={{padding:'20px'}}>
             <Typography variant="h5">
-                {this.props.grant.projectName}
+                {grant.projectName}
             </Typography>
             <hr/>
             <Table>
                 <TableBody>
-                  {this.renderTableRow('Team Name', this.props.grant.teamName)}
-                  {this.renderTableRow('Date accepted', '')}
-                  {this.renderTableRow('Level', '')}
-                  {this.renderTableRow('Payment Address', '')}
-                  {this.renderTableRow('Currency', '')}
-                  {this.renderTableRow('Amount', '')}
-                  {this.renderTableRow('Milestones', '')}
+                  {this.renderTableRow('Team Name', grant.teamName)}
+                  {this.renderTableRow('Date accepted', formatDate(grant.status.acceptDate))}
+                  {this.renderTableRow('Level', grant.level)}
+                  {this.renderTableRow('Payment Address', grant.paymentAddress)}
+                  {this.renderTableRow('Currency',  grant.paymentCurrency)}
+                  {this.renderTableRow('Amount',  grant.amount)}
+                  {this.renderTableRow('Milestones', grant.numMilestonesDelivered+' / '+grant.numMilestones)}
                 </TableBody>
             </Table>
             <hr/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             {JSON.stringify(this.props.grant)}
         </Paper>
       );
