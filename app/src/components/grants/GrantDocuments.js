@@ -33,7 +33,17 @@ export default class GrantDocuments extends React.Component {
   }
 
   openDocument = (url) => () => {
-    alert(url) ;
+    window.open(url, '_blank') ;
+  }
+
+  getApplicationPR = () => {
+    const pr = this.props.grant.pullRequest ;
+    return 'https://github.com/w3f/Grants-Program/pull/'+pr ;
+  }
+
+  getApplicationAccepted = () => {
+    const fileName = this.props.grant.fileName ;
+    return 'https://github.com/w3f/Grants-Program/tree/master/applications/'+fileName ;
   }
 
   getDeliveries1 = () => {
@@ -45,7 +55,7 @@ export default class GrantDocuments extends React.Component {
             const pr = commit.pullRequest ;
             ans.push({
                 label: 'PR#'+pr,
-                url: '1234'
+                url: 'https://github.com/w3f/Grant-Milestone-Delivery/pull/'+pr
             }) ;
         }
     }
@@ -57,9 +67,10 @@ export default class GrantDocuments extends React.Component {
     for (var i in this.props.grant.milestones) {
         const milestone = this.props.grant.milestones[i] ;
         if (milestone.delivery) {
+            const fileName = milestone.delivery.fileName ;
             ans.push({
-                label: milestone.delivery.fileName,
-                url: '1234'
+                label: fileName,
+                url: 'https://github.com/w3f/Grant-Milestone-Delivery/blob/master/deliveries/'+fileName
             }) ;
         }
     }
@@ -71,9 +82,10 @@ export default class GrantDocuments extends React.Component {
     for (var i in this.props.grant.milestones) {
         const milestone = this.props.grant.milestones[i] ;
         if (milestone.evaluation) {
+            const fileName = milestone.evaluation.fileName ;
             ans.push({
-                label: milestone.evaluation.fileName,
-                url: '1234'
+                label: fileName,
+                url: 'https://github.com/w3f/Grant-Milestone-Delivery/blob/master/evaluations/'+fileName
             }) ;
         }
     }
@@ -112,6 +124,8 @@ export default class GrantDocuments extends React.Component {
   }
 
   render = () => {
+      const applicationPR = this.getApplicationPR() ;
+      const applicationAccepted = this.getApplicationAccepted() ;
       const deliveries1 = this.getDeliveries1() ;
       const deliveries2 = this.getDeliveries2() ;
       const evaluations = this.getEvaluations() ;
@@ -126,14 +140,14 @@ export default class GrantDocuments extends React.Component {
           }
         >
 
-          <ListItemButton onClick={this.openDocument('application_pr')}>
+          <ListItemButton onClick={this.openDocument(applicationPR)}>
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
             <ListItemText primary="Application PR" />
           </ListItemButton>
 
-          <ListItemButton onClick={this.openDocument('application_accepted')}>
+          <ListItemButton onClick={this.openDocument(applicationAccepted)}>
             <ListItemIcon>
               <AssignmentTurnedInIcon />
             </ListItemIcon>
