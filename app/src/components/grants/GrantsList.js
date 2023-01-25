@@ -29,7 +29,7 @@ export default class GrantsList extends React.Component {
                 <Table>
                     <TableHead>
                       <TableRow>
-                        <TableCell align="center"><b>Team / Project</b></TableCell>
+                        <TableCell align="left"><b>Project</b></TableCell>
                         <TableCell style={{minWidth:'110px'}} align="center"><b>Started On</b></TableCell>
                         <TableCell align="center"><b>Level</b></TableCell>
                         <TableCell align="center"><b>Cost</b></TableCell>
@@ -49,9 +49,8 @@ export default class GrantsList extends React.Component {
     return (
         <TableRow key={grant.fileName} hover={true}>
               <TableCell>
-                <a href={'grants/'+grant.fileName}>
-                    {grant.teamName} / {grant.projectName}
-                </a>
+                <a href={'grants/'+grant.fileName}>{grant.projectName}</a><br/>
+                <small>{grant.teamName}</small>
               </TableCell>
               <TableCell>{formatDate(grant.status.acceptDate)}</TableCell>
               <TableCell align="center">{grant.level}</TableCell>
